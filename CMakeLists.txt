@@ -8,8 +8,9 @@ find_package(SDL2)
 
 
 
-add_library(yonside src/terminal.c)
+add_library(yonside SHARED src/terminal.c)
+target_compile_definitions(yonside PRIVATE YON_EXPORTS)
 target_include_directories(yonside PUBLIC src/)
-target_link_libraries(yonside SDL2::SDL2)
+target_link_libraries(yonside SDL2)
 
 
