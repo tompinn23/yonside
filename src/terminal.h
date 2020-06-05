@@ -12,6 +12,7 @@ struct YON_ConsoleTile {
 
 struct YON_Console {
 	int w, h;
+	uint32_t fg, bg;
 	struct YON_ConsoleTile* tiles;
 	int elements;
 };

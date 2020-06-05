@@ -8,7 +8,9 @@ find_package(SDL2)
 
 
 
-add_library(yonside SHARED src/terminal.c "src/sdl2.h")
+add_library(yonside SHARED src/terminal.c
+	src/log.c
+	src/z_memory.c)
 target_compile_definitions(yonside PRIVATE YON_EXPORTS)
 target_include_directories(yonside PUBLIC src/)
 target_link_libraries(yonside SDL2)
