@@ -176,22 +176,22 @@ void log_log(int level, const char *file, int line, const char *fmt, ...) {
 void SDL_log_log(void* userdata, int ctegory, SDL_LogPriority priority, const char* message) {
 	switch(priority) {
 		case SDL_LOG_PRIORITY_VERBOSE:
-			log_log(LOG_TRACE, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_TRACE, "SDL", 0, "SDL: %s", message);
 			break;
 		case SDL_LOG_PRIORITY_DEBUG:
-			log_log(LOG_DEBUG, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_DEBUG, "SDL", 0, "SDL: %s", message);
 			break;
 		case SDL_LOG_PRIORITY_INFO:
-			log_log(LOG_INFO, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_INFO, "SDL", 0, "SDL: %s", message);
 			break;
 		case SDL_LOG_PRIORITY_WARN:
-			log_log(LOG_WARN, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_WARN, "SDL", 0, "SDL: %s", message);
 			break;
 		case SDL_LOG_PRIORITY_ERROR:
-			log_log(LOG_ERROR, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_ERROR, "SDL", 0, "SDL: %s", message);
 			break;
 		case SDL_LOG_PRIORITY_CRITICAL:
-			log_log(LOG_FATAL, "SDL", 0, "SDL: %s", message);
+			log_log(YON_LOG_FATAL, "SDL", 0, "SDL: %s", message);
 			break;
 	}
 }

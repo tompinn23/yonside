@@ -22,6 +22,7 @@ typedef struct YON_Console YON_Console;
 
 
 YON_PUBLIC YON_Console* YON_Console_new(int w, int h);
+YON_PUBLIC void YON_Console_delete(YON_Console* con);
 YON_PUBLIC int YON_Console_get_width(const YON_Console* con);
 YON_PUBLIC int YON_Console_get_height(const YON_Console* con);
 YON_PUBLIC void YON_Console_blit(const YON_Console* src,

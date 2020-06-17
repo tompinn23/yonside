@@ -13,7 +13,7 @@ void* mem_alloc(size_t sz) {
 
 	mem = malloc(sz + sizeof(size_t));
 	if(!mem) {
-		log_fatal("Out of memory!");
+		YON_log_fatal("Out of memory!");
 		exit(EXIT_FAILURE);
 	}
 
@@ -51,7 +51,7 @@ void* mem_realloc(void* ptr, size_t sz) {
 	mem += sizeof(size_t);
 
 	if(!mem) {
-		log_fatal("Out of memory!");
+		YON_log_fatal("Out of memory!");
 		exit(EXIT_FAILURE);
 
 	}

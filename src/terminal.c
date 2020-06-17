@@ -1,5 +1,6 @@
 #include "terminal.h"
 
+#include "z_memory.h"
 
 YON_Console* YON_Console_new(int w, int h) {
 	YON_Console* con = mem_alloc(sizeof(YON_Console));
