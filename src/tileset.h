@@ -4,7 +4,8 @@
 
 typedef enum {
     LAYOUT_INROW,
-    LAYOUT_TCOD
+    LAYOUT_TCOD,
+	LAYOUT_INCOL
 } YON_TileLayout;
 
 struct YON_Tileset {

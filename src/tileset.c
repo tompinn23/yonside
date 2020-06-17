@@ -60,16 +60,29 @@ int YON_Tileset_load(const char* key, uint8_t* memory, YON_TileLayout layout) {
     }
     tileset->tiles = buffer;
     tileset->codepoints = mem_alloc(256 * sizeof(int));
+	
+
     switch(layout) {
         case LAYOUT_INROW:
             tileset->width = w / 16;
             tileset->height = h / 16;
             for(int i = 0; i < 256; i++) {
-                tileset->codepoints[i] = i * w * h * 4;
+				int x = i % 16;
+				int y = i / 16;
+				tileset->codepoints[i] = y * 16 + x;
             }
             break;
         case LAYOUT_INCOL:
             tileset->width = w / 16;
             tileset->height = h / 16;
+            for(int i = 0; i < 256; i++) {
+				int x = i % 16;
+				int y = i / 16;
+				tileset->codepoints[i] = x * 16 + y;
+            }
+			break;
+		case LAYOUT_TCOD:
+			break;
     }
 }
+
