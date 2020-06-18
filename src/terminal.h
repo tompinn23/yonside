@@ -15,6 +15,8 @@ struct YON_Console {
 	uint32_t fg, bg;
 	struct YON_ConsoleTile* tiles;
 	int elements;
+	
+	int id;
 };
 
 typedef struct YON_ConsoleTile YON_ConsoleTile;

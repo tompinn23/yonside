@@ -2,11 +2,14 @@
 
 #include "z_memory.h"
 
+static int next_id = 0;
+
 YON_Console* YON_Console_new(int w, int h) {
 	YON_Console* con = mem_alloc(sizeof(YON_Console));
 	con->w = w;
 	con->h = h;
 	con->tiles = mem_zalloc(sizeof(YON_ConsoleTile) * w * h);
+	con->id = next_id++;
 	return con;
 }
 

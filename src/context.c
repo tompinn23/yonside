@@ -1,6 +1,8 @@
 #include "context.h"
 
 #include "quiteron.h"
+#include "terminal.h"
+#include "tileset.h"
 #include "z_memory.h"
 #include "log.h"
 
@@ -17,18 +19,19 @@ YON_Context* YON_Context_new() {
 			log_error("Failed to init SDL: %s", SDL_GetError());	
 			return NULL;
 		}
-		ctx->window = SDL_CreateWindow("Yonside", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, NULL);
-		if(!ctx->window) {
-			log_error("Failed to create window: %s", SDL_GetError());
-			return NULL;
-		}
-		ctx->renderer = SDL_CreateRenderer(ctx->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
-		if(!ctx->renderer) {
-			log_error("Failed to create renderer: %s", SDL_GetError());
-			return NULL;
-		}
-		ctx->default_tileset = NULL;
-		ctx->root = NULL;
 	}
-	return NULL;
+	ctx->window = SDL_CreateWindow("Yonside", SDL_WINDOWPOS_CENTERED, SDL_WINDOWPOS_CENTERED, 800, 600, NULL);
+	if(!ctx->window) {
+		log_error("Failed to create window: %s", SDL_GetError());
+		return NULL;
+	}
+	ctx->renderer = SDL_CreateRenderer(ctx->window, -1, SDL_RENDERER_ACCELERATED | SDL_RENDERER_TARGETTEXTURE);
+	if(!ctx->renderer) {
+		log_error("Failed to create renderer: %s", SDL_GetError());
+		return NULL;
+	}
+	YON_Tileset_loadf_ex("terminal.png", LAYOUT_INROW, "default");
+	ctx->default_tileset = YON_Tileset_get("default");
+	ctx->root = YON_Console_new(80, 60);
+	return ctx;
 }
